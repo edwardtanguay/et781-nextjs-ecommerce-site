@@ -11,6 +11,7 @@ interface IAppContext {
 	cart: ICart;
 	getProductWithId: (id: number) => IProduct | undefined;
 	handleAddProductToCart: (id: number) => void;
+	getTotalPriceOfCart: () => number;
 }
 
 interface IAppProvider {
@@ -47,8 +48,19 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			});
 		}
 		setCart(structuredClone(cart));
-		push('/cart');
+		push("/cart");
 	};
+
+	const getTotalPriceOfCart = () => {
+		return cart.cartProducts.reduce((total, cartProduct) => {
+			const product = products.find(m => m.id === cartProduct.productId);
+
+			if (product) {
+				total = total + (product.price * cartProduct.quantity); 
+			}
+			return total;
+		}, 0)
+	}
 
 	return (
 		<AppContext.Provider
@@ -57,6 +69,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				cart,
 				getProductWithId,
 				handleAddProductToCart,
+				getTotalPriceOfCart
 			}}
 		>
 			{children}

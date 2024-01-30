@@ -17,7 +17,6 @@ export const Product = ({ product, quantity }: IProps) => {
 			{quantity && <p className="text-slate-100 text-2xl">{quantity}x</p>}
 			<img src={`images/products/product_${product.id}.jpg`} />
 			<section className="productGrid">
-				<div>ID = {product.id}</div>
 				<section>
 					<p className="text-xs text-yellow-500">
 						{product.category}

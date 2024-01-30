@@ -5,7 +5,7 @@ import React from "react";
 import { useContext } from "react";
 
 export default function Cart() {
-	const { cart, getProductWithId } = useContext(AppContext);
+	const { cart, getProductWithId, getTotalPriceOfCart } = useContext(AppContext);
 	return (
 		<>
 			<p className="mb-3">Customer type: {cart.customerType}</p>
@@ -16,6 +16,7 @@ export default function Cart() {
 					return sum;
 				}, 0)}
 			</p>
+			<p className="mb-3">Total price: {getTotalPriceOfCart()} €</p>
 
 			<section className="mt-4">
 				{cart.cartProducts.map((cartProduct) => {
