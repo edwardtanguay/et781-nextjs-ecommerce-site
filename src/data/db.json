@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "Smartphone",
+      "brand": "XYZ",
+      "model": "Smartphone 1",
+      "price": 799.99
+    },
+    {
+      "id": 2,
+      "category": "Laptop",
+      "brand": "ABC",
+      "model": "Laptop 1",
+      "price": 1499.99
+    },
+    {
+      "id": 3,
+      "category": "External Disk Drive",
+      "brand": "123",
+      "model": "Drive 1",
+      "price": 79.99
+    },
+    {
+      "id": 4,
+      "category": "Smartphone",
+      "brand": "PQR",
+      "model": "Smartphone 2",
+      "price": 899.99
+    },
+    {
+      "id": 5,
+      "category": "Laptop",
+      "brand": "DEF",
+      "model": "Laptop 2",
+      "price": 999.99
+    },
+    {
+      "id": 6,
+      "category": "External Disk Drive",
+      "brand": "456",
+      "model": "Drive 2",
+      "price": 99.99
+    },
+    {
+      "id": 7,
+      "category": "Smartphone",
+      "brand": "LMN",
+      "model": "Smartphone 3",
+      "price": 699.99
+    },
+    {
+      "id": 8,
+      "category": "Laptop",
+      "brand": "GHI",
+      "model": "Laptop 3",
+      "price": 1199.99
+    },
+    {
+      "id": 9,
+      "category": "External Disk Drive",
+      "brand": "789",
+      "model": "Drive 3",
+      "price": 129.99
+    },
+    {
+      "id": 10,
+      "category": "Smartphone",
+      "brand": "OPQ",
+      "model": "Smartphone 4",
+      "price": 749.99
+    }
+  ]
+}
