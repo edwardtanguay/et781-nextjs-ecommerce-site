@@ -17,6 +17,7 @@ export const Product = ({ product, quantity }: IProps) => {
 			{quantity && <p className="text-slate-100 text-2xl">{quantity}x</p>}
 			<img src={`images/products/product_${product.id}.jpg`} />
 			<section className="productGrid">
+				<div>ID = {product.id}</div>
 				<section>
 					<p className="text-xs text-yellow-500">
 						{product.category}
@@ -29,7 +30,7 @@ export const Product = ({ product, quantity }: IProps) => {
 				<button
 					type="button"
 					onClick={() => handleAddProductToCart(product.id)}
-					className="bg-slate-400 rounded px-2 py-0"
+					className="bg-slate-400 hover:bg-slate-300 rounded px-2 py-0"
 				>
 					Add to Cart
 				</button>

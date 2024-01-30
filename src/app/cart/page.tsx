@@ -1,6 +1,7 @@
 "use client";
 import { AppContext } from "@/AppContext";
 import { Product } from "@/components/Product";
+import React from "react";
 import { useContext } from "react";
 
 export default function Cart() {
@@ -20,13 +21,17 @@ export default function Cart() {
 				{cart.cartProducts.map((cartProduct) => {
 					const product = getProductWithId(cartProduct.productId);
 					return (
-						<>
+						<React.Fragment key={cartProduct.productId}>
 							{product && (
 								<>
-									<Product key={product.id} quantity={cartProduct.quantity}   product={product}/>
+									<Product
+										key={product.id}
+										quantity={cartProduct.quantity}
+										product={product}
+									/>
 								</>
 							)}
-						</>
+						</React.Fragment>
 					);
 				})}
 			</section>
