@@ -9,6 +9,7 @@ interface IAppContext {
 	products: IProduct[];
 	cart: ICart;
 	getProductWithId: (id: number) => IProduct | undefined;
+	handleAddProductToCart: (id: number) => void;
 }
 
 interface IAppProvider {
@@ -25,12 +26,17 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		return products.find(m => m.id === id);
 	}
 
+	const handleAddProductToCart = (id: number) => {
+		alert('adding to cart...' + id)
+	}
+
 	return (
 		<AppContext.Provider
 			value={{
 				products,
 				cart,
-				getProductWithId
+				getProductWithId,
+				handleAddProductToCart
 			}}
 		>
 			{children}

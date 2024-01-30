@@ -1,4 +1,6 @@
+import { AppContext } from "@/AppContext";
 import { IProduct } from "@/interfaces";
+import { useContext } from "react";
 
 interface IProps {
 	product: IProduct;
@@ -6,6 +8,7 @@ interface IProps {
 }
 
 export const Product = ({ product, quantity }: IProps) => {
+	const { handleAddProductToCart } = useContext(AppContext);
 	return (
 		<div
 			key={product.id}
@@ -23,7 +26,13 @@ export const Product = ({ product, quantity }: IProps) => {
 					</p>
 					<p className="text-red-500">{product.price} €</p>
 				</section>
-				<button type="button" className="bg-slate-400 rounded px-2 py-0">Add to Cart</button>
+				<button
+					type="button"
+					onClick={() => handleAddProductToCart(product.id)}
+					className="bg-slate-400 rounded px-2 py-0"
+				>
+					Add to Cart
+				</button>
 			</section>
 		</div>
 	);
