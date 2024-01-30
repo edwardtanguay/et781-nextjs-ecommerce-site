@@ -34,6 +34,18 @@ export const Nav = () => {
 				</li>
 				<li>
 					<Link
+						href="/cart"
+						className={
+							activeSegment === "cart"
+								? "text-yellow-200"
+								: ""
+						}
+					>
+						Cart
+					</Link>
+				</li>
+				<li>
+					<Link
 						href="/contact"
 						className={
 							activeSegment === "contact"
