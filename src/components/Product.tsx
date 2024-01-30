@@ -23,7 +23,7 @@ export const Product = ({ product, quantity }: IProps) => {
 					</p>
 					<p className="text-red-500">{product.price} €</p>
 				</section>
-				<button type="button" className="bg-slate-400 rounded">Add to Cart</button>
+				<button type="button" className="bg-slate-400 rounded px-2 py-0">Add to Cart</button>
 			</section>
 		</div>
 	);

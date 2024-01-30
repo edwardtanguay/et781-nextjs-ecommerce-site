@@ -5,8 +5,8 @@
 .productGrid {
 	display: grid;
 	width: 100%;
-	grid-template-columns: 60% 1fr;
-	grid-template-rows: 80% 1fr;
+	grid-template-columns: 50% 1fr;
+	grid-template-rows: 70% 1fr;
 	grid-template-areas: "text text"
 						 ".... button";
 }
