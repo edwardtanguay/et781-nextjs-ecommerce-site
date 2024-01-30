@@ -27,7 +27,11 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	}
 
 	const handleAddProductToCart = (id: number) => {
-		alert('adding to cart...' + id)
+		cart.cartProducts.push({
+			productId: id,
+			quantity: 1
+		});
+		setCart(structuredClone(cart));
 	}
 
 	return (
