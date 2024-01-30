@@ -23,7 +23,7 @@ export default function Cart() {
 						<>
 							{product && (
 								<>
-									<Product key={product.id} product={product}/>
+									<Product key={product.id} quantity={cartProduct.quantity}   product={product}/>
 								</>
 							)}
 						</>

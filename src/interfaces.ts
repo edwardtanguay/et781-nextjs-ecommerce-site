@@ -30,8 +30,12 @@ export const blankCart: ICart = {
 			quantity: 4
 		},
 		{
+			productId: 4,
+			quantity: 1
+		},
+		{
 			productId: 7,
-			quantity: 10
+			quantity: 20
 		}
 	]
 }
