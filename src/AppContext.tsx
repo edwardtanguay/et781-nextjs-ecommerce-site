@@ -2,6 +2,7 @@
 import { createContext, useState } from "react";
 import db from "@/data/db.json";
 import { ICart, IProduct, blankCart } from "./interfaces";
+import { useRouter } from "next/navigation";
 
 const _products = db.products;
 
@@ -22,6 +23,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [products, setProducts] = useState<IProduct[]>(_products);
 	const [cart, setCart] = useState<ICart>(blankCart);
 
+	const { push } = useRouter();
+
 	const getProductWithId = (id: number): IProduct | undefined => {
 		return products.find((m) => m.id === id);
 	};
@@ -31,7 +34,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		const idIsAlreadyInCart = productIdsInCart.includes(id);
 
 		if (idIsAlreadyInCart) {
-			const cartProduct = cart.cartProducts.find(m => m.productId === id);
+			const cartProduct = cart.cartProducts.find(
+				(m) => m.productId === id
+			);
 			if (cartProduct) {
 				cartProduct.quantity++;
 			}
@@ -42,6 +47,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 			});
 		}
 		setCart(structuredClone(cart));
+		push('/cart');
 	};
 
 	return (

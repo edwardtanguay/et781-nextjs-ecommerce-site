@@ -27,13 +27,15 @@ export const Product = ({ product, quantity }: IProps) => {
 					</p>
 					<p className="text-red-500">{product.price} €</p>
 				</section>
-				<button
-					type="button"
-					onClick={() => handleAddProductToCart(product.id)}
-					className="bg-slate-400 hover:bg-slate-300 rounded px-2 py-0"
-				>
-					Add to Cart
-				</button>
+				{!quantity && (
+					<button
+						type="button"
+						onClick={() => handleAddProductToCart(product.id)}
+						className="bg-slate-400 hover:bg-slate-300 rounded px-2 py-0"
+					>
+						Add to Cart
+					</button>
+				)}
 			</section>
 		</div>
 	);
