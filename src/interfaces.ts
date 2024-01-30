@@ -26,11 +26,11 @@ export const blankCart: ICart = {
 			quantity: 2
 		},
 		{
-			productId: 5,
+			productId: 3,
 			quantity: 4
 		},
 		{
-			productId: 9,
+			productId: 7,
 			quantity: 10
 		}
 	]
