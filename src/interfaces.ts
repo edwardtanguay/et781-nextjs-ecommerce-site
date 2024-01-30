@@ -11,6 +11,27 @@ export interface ICartProduct {
 	quantity: number;
 }
 
+export type ICustomerType = "normal" | "vip";
+
 export interface ICart {
+	customerType: ICustomerType;
 	cartProducts: ICartProduct[];
+}
+
+export const blankCart: ICart = {
+	customerType: "normal",
+	cartProducts: [
+		{
+			productId: 1,
+			quantity: 2
+		},
+		{
+			productId: 5,
+			quantity: 4
+		},
+		{
+			productId: 9,
+			quantity: 10
+		}
+	]
 }
