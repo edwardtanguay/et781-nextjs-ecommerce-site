@@ -12,6 +12,7 @@ interface IAppContext {
 	getProductWithId: (id: number) => IProduct | undefined;
 	handleAddProductToCart: (id: number) => void;
 	getTotalPriceOfCart: () => number;
+	handleRemoveProductFromCart: (id: number) => void;
 }
 
 interface IAppProvider {
@@ -51,16 +52,52 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		push("/cart");
 	};
 
+	const getIndexOfCartProductFromCart = (productId: number) => {
+		let index = 0;
+		for (const cartProduct of cart.cartProducts) {
+			if (cartProduct.productId === productId) {
+				return index;
+			}
+			index++;
+		}
+	};
+
+	const handleRemoveProductFromCart = (id: number) => {
+		const productIdsInCart = cart.cartProducts.map((m) => m.productId);
+		const idIsAlreadyInCart = productIdsInCart.includes(id);
+		if (idIsAlreadyInCart) {
+			const cartProduct = cart.cartProducts.find(
+				(m) => m.productId === id
+			);
+			if (cartProduct) {
+				if (cartProduct.quantity >= 2) {
+					cartProduct.quantity--;
+				} else {
+					const index = getIndexOfCartProductFromCart(
+						cartProduct.productId
+					);
+					console.log(555,index);
+					if (index !== undefined) {
+						cart.cartProducts.splice(index, 1);
+					}
+				}
+			}
+		}
+		setCart(structuredClone(cart));
+	};
+
 	const getTotalPriceOfCart = () => {
 		return cart.cartProducts.reduce((total, cartProduct) => {
-			const product = products.find(m => m.id === cartProduct.productId);
+			const product = products.find(
+				(m) => m.id === cartProduct.productId
+			);
 
 			if (product) {
-				total = total + (product.price * cartProduct.quantity); 
+				total = total + product.price * cartProduct.quantity;
 			}
 			return total;
-		}, 0)
-	}
+		}, 0);
+	};
 
 	return (
 		<AppContext.Provider
@@ -69,7 +106,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				cart,
 				getProductWithId,
 				handleAddProductToCart,
-				getTotalPriceOfCart
+				getTotalPriceOfCart,
+				handleRemoveProductFromCart,
 			}}
 		>
 			{children}

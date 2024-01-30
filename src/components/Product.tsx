@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export const Product = ({ product, quantity }: IProps) => {
-	const { handleAddProductToCart } = useContext(AppContext);
+	const { handleAddProductToCart, handleRemoveProductFromCart } = useContext(AppContext);
 	return (
 		<div
 			key={product.id}
@@ -26,7 +26,15 @@ export const Product = ({ product, quantity }: IProps) => {
 					</p>
 					<p className="text-red-500">{product.price} €</p>
 				</section>
-				{!quantity && (
+				{quantity ? (
+					<button
+						type="button"
+						onClick={() => handleRemoveProductFromCart(product.id)}
+						className="bg-slate-400 hover:bg-slate-300 rounded px-2 py-0"
+					>
+						Remove from Cart
+					</button>
+				) : (
 					<button
 						type="button"
 						onClick={() => handleAddProductToCart(product.id)}
