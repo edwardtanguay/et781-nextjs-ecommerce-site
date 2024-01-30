@@ -20,22 +20,5 @@ export interface ICart {
 
 export const blankCart: ICart = {
 	customerType: "normal",
-	cartProducts: [
-		{
-			productId: 1,
-			quantity: 2
-		},
-		{
-			productId: 3,
-			quantity: 4
-		},
-		{
-			productId: 4,
-			quantity: 1
-		},
-		{
-			productId: 7,
-			quantity: 20
-		}
-	]
+	cartProducts: []
 }
